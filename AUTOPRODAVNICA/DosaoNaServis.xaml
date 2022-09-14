@@ -1,0 +1,30 @@
+﻿<Window x:Class="AUTOPRODAVNICA.DosaoNaServis"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AUTOPRODAVNICA"
+        mc:Ignorable="d"
+        Title="DosaoNaServis" Height="350" Width="400" Loaded="Window_Loaded">
+    <Window.Resources>
+        <CollectionViewSource x:Key="musterijaViewSource"/>
+    </Window.Resources>
+    <Grid Margin="10,0,0,0" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="63*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="musterijaDataGrid" AutoGenerateColumns="False" ItemsSource="{Binding Source={StaticResource musterijaViewSource}}" CanUserReorderColumns="True" Grid.Column="1" Margin="158,117,10,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding CId}" Header="ID" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="CustomerFirstNameColumn" Binding="{Binding CfName}" Header="First name" IsReadOnly="true" />
+                <DataGridTextColumn x:Name="CustomerLastNameColumn" Binding="{Binding ClName}" Header="Last name" IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Image Name="slika" HorizontalAlignment="Left" Height="97" Margin="33,10,0,0" VerticalAlignment="Top" Width="293" Grid.Column="1"/>
+
+        <ComboBox Name="musterijeComboBox" HorizontalAlignment="Left" Margin="8,130,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+        <Button Content="Ok" HorizontalAlignment="Left" Margin="13,192,0,0" VerticalAlignment="Top" Width="115" Click="Button_Click" Grid.Column="1"/>
+
+    </Grid>
+</Window>

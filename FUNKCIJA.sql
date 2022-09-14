@@ -1,0 +1,16 @@
+CREATE FUNCTION dbo.CitanjeAutaPoMarkama(
+@marka varchar(20))
+RETURNS TABLE AS
+RETURN(
+SELECT CHASIS_NUM,MODEL AS 'Automobil'
+FROM dbo.AUTOMOBIL,dbo.MARKA
+WHERE MARKA = BRAND_ID AND BRAND_NAME = @marka
+);
+GO
+
+SELECT * FROM DBO.CitanjeAutaPoMarkama('SKODA');
+GO
+
+SELECT * FROM MARKA
+
+DROP FUNCTION DBO.CitanjeAutaPoMarkama

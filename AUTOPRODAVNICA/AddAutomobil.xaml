@@ -1,0 +1,21 @@
+﻿<Window x:Class="AUTOPRODAVNICA.AddAutomobil"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AUTOPRODAVNICA"
+        mc:Ignorable="d"
+        Title="AddAutomobil" Height="450" Width="800">
+    <Grid>
+        <Image Name="slika" HorizontalAlignment="Left" Height="97" Margin="74,10,0,0" VerticalAlignment="Top" Width="627"/>
+        <TextBox x:Name="ModelTextBox" HorizontalAlignment="Left" Margin="378,195,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Model" HorizontalAlignment="Left" Margin="242,191,0,0" VerticalAlignment="Top" Width="64"/>
+        <TextBox x:Name="GodinaProizvodnjeTextBox" HorizontalAlignment="Left" Margin="378,226,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="GodinaProizvodnjeTextBox_PreviewTextInput"/>
+        <Label Content="Godina proizvodnje" HorizontalAlignment="Left" Margin="242,222,0,0" VerticalAlignment="Top" Width="131"/>
+        <ComboBox Name="CenovnikComboBox" HorizontalAlignment="Left" Margin="378,249,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox Name="MarkaComboBox" HorizontalAlignment="Left" Margin="378,276,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Cenovnik" HorizontalAlignment="Left" Margin="242,253,0,0" VerticalAlignment="Top" Width="131"/>
+        <Label Content="Marka" HorizontalAlignment="Left" Margin="242,279,0,0" VerticalAlignment="Top" Width="131"/>
+        <Button x:Name="AddCarButton" Content="Dodaj" HorizontalAlignment="Left" Margin="378,336,0,0" VerticalAlignment="Top" Width="120" Click="AddCarButton_Click"/>
+    </Grid>
+</Window>

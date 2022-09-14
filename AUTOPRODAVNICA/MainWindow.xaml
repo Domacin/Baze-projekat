@@ -1,0 +1,97 @@
+﻿<Window x:Class="AUTOPRODAVNICA.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AUTOPRODAVNICA"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded" Closing="Window_Closing">
+    <Window.Resources>
+        <CollectionViewSource x:Key="zaposleniViewSource"/>
+        <CollectionViewSource x:Key="markaViewSource"/>
+        <CollectionViewSource x:Key="musterijaViewSource"/>
+        <CollectionViewSource x:Key="automobilViewSource"/>
+        <CollectionViewSource x:Key="cenovnikViewSource"/>
+        <CollectionViewSource x:Key="racunViewSource"/>
+    </Window.Resources>
+
+    <Grid>
+        <TabControl Width="770" Height="375" VerticalAlignment="Top">
+            <TabItem Header="Zaposleni" >
+                <DataGrid x:Name="ZaposleniDataGrid" AutoGenerateColumns="False" ItemsSource="{Binding Source={StaticResource zaposleniViewSource}}" CanUserReorderColumns="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding WId}" Header="ID" IsReadOnly="True"/>
+                        <DataGridTextColumn x:Name="FirstNameColumn" Binding="{Binding WfName}" Header="First name" IsReadOnly="False" />
+                        <DataGridTextColumn x:Name="LastNameColumn" Binding="{Binding WlName}" Header="Last name" IsReadOnly="False" />
+                        <DataGridTextColumn x:Name="RadnoMjestoIDColumn" Binding="{Binding RmId}" Header="RM ID" IsReadOnly="True"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+
+            <TabItem Header="Marka automobila" >
+                <DataGrid x:Name="markaDataGrid" AutoGenerateColumns="False" ItemsSource="{Binding Source={StaticResource markaViewSource}}" CanUserReorderColumns="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding BrandId}" Header="ID" IsReadOnly="True"/>
+                        <DataGridTextColumn x:Name="BrandNameColumn" Binding="{Binding BrandName}" Header="Brand name" IsReadOnly="false" />
+                        <DataGridTextColumn x:Name="BrandCountryColumn" Binding="{Binding BrandC}" Header="Brand country" IsReadOnly="false" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+
+            <TabItem Header="Musterija" >
+                <DataGrid x:Name="musterijaDataGrid" AutoGenerateColumns="False" ItemsSource="{Binding Source={StaticResource musterijaViewSource}}" CanUserReorderColumns="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding CId}" Header="ID" IsReadOnly="True"/>
+                        <DataGridTextColumn x:Name="CustomerFirstNameColumn" Binding="{Binding CfName}" Header="First name" IsReadOnly="false" />
+                        <DataGridTextColumn x:Name="CustomerLastNameColumn" Binding="{Binding ClName}" Header="Last name" IsReadOnly="false" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+
+
+            <TabItem Header="Automobil" >
+                <DataGrid x:Name="automobilaDataGrid" AutoGenerateColumns="False" ItemsSource="{Binding Source={StaticResource automobilViewSource}}" CanUserReorderColumns="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding ChasisNum}" Header="Chasis Number" IsReadOnly="True"/>
+                        <DataGridTextColumn x:Name="ModelNameColumn" Binding="{Binding Model}" Header="Model" IsReadOnly="false" />
+                        <DataGridTextColumn x:Name="YearOfProductionNameColumn" Binding="{Binding YearP}" Header="Year of production" IsReadOnly="false" />
+                        <DataGridTextColumn x:Name="MarkaNameColumn" Binding="{Binding Marka}" Header="Marka ID" IsReadOnly="True" />
+                        <DataGridTextColumn x:Name="CenovnikNameColumn" Binding="{Binding Cenovnik}" Header="Cenovnik ID" IsReadOnly="True" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+
+            <TabItem Header="Cenovnik" >
+                <DataGrid x:Name="cenovnikDataGrid" AutoGenerateColumns="False" ItemsSource="{Binding Source={StaticResource cenovnikViewSource}}" CanUserReorderColumns="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding CenovnikId}" Header="ID" IsReadOnly="True"/>
+                        <DataGridTextColumn x:Name="StartDateColumn" Binding="{Binding DateStart, StringFormat='dd-MM-yyyy'}" Header="Start date" IsReadOnly="false" />
+                        <DataGridTextColumn x:Name="EndDateColumn" Binding="{Binding DateEnd, StringFormat='dd-MM-yyyy'}" Header="End date" IsReadOnly="false" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+
+            <TabItem Header="Racun" >
+                <DataGrid x:Name="racunDataGrid" AutoGenerateColumns="False" ItemsSource="{Binding Source={StaticResource racunViewSource}}" CanUserReorderColumns="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding BillId}" Header="ID" IsReadOnly="True"/>
+                        <DataGridTextColumn x:Name="PriceeColumn" Binding="{Binding BillPrice}" Header="Price" IsReadOnly="True" />
+                        <DataGridTextColumn x:Name="BillDateColumn" Binding="{Binding BillDate, StringFormat='dd-MM-yyyy'}" Header="Bill date" IsReadOnly="True" />
+                        <DataGridTextColumn x:Name="MusterijaIDColumn" Binding="{Binding Musterija}" Header="Musterija ID" IsReadOnly="True"/>
+                        <DataGridTextColumn x:Name="StavkaIDColumn" Binding="{Binding Stavka}" Header="Stavka ID" IsReadOnly="True"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+
+
+
+        </TabControl>
+
+        <Button x:Name="AddWorker" Content="Dodaj zaposlenog" HorizontalAlignment="Left" Margin="15,389,0,0" VerticalAlignment="Top" Click="AddWorker_Click"/>
+        <Button Name="AddCar" Content="Dodaj automobil" HorizontalAlignment="Left" Margin="129,389,0,0" VerticalAlignment="Top" Width="100" Click="AddCar_Click"/>
+        <Button Name="makeBillButton" Content="Izdaj racun" HorizontalAlignment="Left" Margin="244,389,0,0" VerticalAlignment="Top" Width="100" Click="makeBillButton_Click"/>
+        <Button x:Name="saveButton" Content="Snimi" HorizontalAlignment="Left" Margin="708,389,0,0" VerticalAlignment="Top" Width="69" Click="saveButton_Click"/>
+        <Button Name="dosaoNaServisButton" Content="Dosao na servis" HorizontalAlignment="Left" Margin="358,389,0,0" VerticalAlignment="Top" Width="100" Click="dosaoNaServisButton_Click"/>
+        <Button x:Name="ObrisiAutoButton" Click="ObrisiAutoButton_Click" Content="Obrisi auto" HorizontalAlignment="Left" Margin="474,389,0,0" VerticalAlignment="Top" Width="98"/>
+    </Grid>
+</Window>

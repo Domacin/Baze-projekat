@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="AddAutomobil.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="AddZaposleni.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DosaoNaServis.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MakeBill.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="RemoveAutomobil.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="AddAutomobil.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="AddZaposleni.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DosaoNaServis.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MakeBill.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RemoveAutomobil.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

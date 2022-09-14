@@ -1,0 +1,21 @@
+﻿<Window x:Class="AUTOPRODAVNICA.AddZaposleni"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AUTOPRODAVNICA"
+        mc:Ignorable="d"
+        Title="AddZaposleni" Height="450" Width="800">
+    <Grid>
+        <TextBox x:Name="FirstNameBox" HorizontalAlignment="Left" Margin="159,168,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="LastNameBox" HorizontalAlignment="Left" Margin="159,223,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Ime:" HorizontalAlignment="Left" Margin="30,168,0,0" VerticalAlignment="Top"/>
+        <Label Content="Prezime:" HorizontalAlignment="Left" Margin="30,215,0,0" VerticalAlignment="Top"/>
+        <Button Name="AddButton" Content="Dodaj" HorizontalAlignment="Left" Margin="119,373,0,0" VerticalAlignment="Top" Width="60" Click="AddButton_Click"/>
+        <RadioButton Name="ServisRadioButton" Content="Servis" HorizontalAlignment="Left" Margin="159,278,0,0" VerticalAlignment="Top"/>
+        <RadioButton Name="RadnjaRadioButton" Content="Radnja" HorizontalAlignment="Left" Margin="159,313,0,0" VerticalAlignment="Top"/>
+        <Label Content="Radno mjesto" HorizontalAlignment="Left" Margin="30,295,0,0" VerticalAlignment="Top" Width="88"/>
+        <Image Name="slika" HorizontalAlignment="Left" Height="97" Margin="74,10,0,0" VerticalAlignment="Top" Width="627"/>
+
+    </Grid>
+</Window>

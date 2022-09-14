@@ -1,0 +1,1 @@
+select * from AUTOMOBIL with(INDEX(indexAutomobilModel))

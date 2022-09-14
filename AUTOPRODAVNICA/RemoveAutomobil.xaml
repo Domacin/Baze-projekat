@@ -1,0 +1,32 @@
+﻿<Window x:Class="AUTOPRODAVNICA.RemoveAutomobil"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AUTOPRODAVNICA"
+        mc:Ignorable="d"
+        Title="RemoveAutomobil" Height="450" Width="800" Loaded="Window_Loaded">
+
+    <Window.Resources>
+        <CollectionViewSource x:Key="automobilViewSource"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="46*"/>
+            <ColumnDefinition Width="333*"/>
+        </Grid.ColumnDefinitions>
+        <Image Name="slika" HorizontalAlignment="Left" Height="97" Margin="29,10,0,0" VerticalAlignment="Top" Width="759" Grid.ColumnSpan="2"/>
+
+        <DataGrid x:Name="automobilaDataGrid" AutoGenerateColumns="False" ItemsSource="{Binding Source={StaticResource automobilViewSource}}" CanUserReorderColumns="True" Margin="329,143,10,41" Grid.Column="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding ChasisNum}" Header="Chasis Number" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="ModelNameColumn" Binding="{Binding Model}" Header="Model" IsReadOnly="True" />
+                <DataGridTextColumn x:Name="YearOfProductionNameColumn" Binding="{Binding YearP}" Header="Year of production" IsReadOnly="True" />
+                <DataGridTextColumn x:Name="MarkaNameColumn" Binding="{Binding Marka}" Header="Marka ID" IsReadOnly="True" />
+                <DataGridTextColumn x:Name="CenovnikNameColumn" Binding="{Binding Cenovnik}" Header="Cenovnik ID" IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <ComboBox Name="autoComboBox" HorizontalAlignment="Left" Margin="29,143,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <Button x:Name="Done" Click="Done_Click" Content="Ok" HorizontalAlignment="Left" Margin="29,373,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+    </Grid>
+</Window>
